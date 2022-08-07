@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false,unique: true|
-| password           | string | null: false |
-| last_name          | string | null: false |
-| first_name         | string | null: false |
-| last_name_name     | string | null: false |
-| first_name_name    | string | null: false |
-| birthday           | date   | null: false |
+| Column              | Type   | Options     |
+| ------------------- | ------ | ----------- |
+| nickname            | string | null: false |
+| email               | string | null: false,unique: true|
+| encrypted_password  | string | null: false |
+| last_name           | string | null: false |
+| first_name          | string | null: false |
+| last_name_name      | string | null: false |
+| first_name_name     | string | null: false |
+| birthday            | date   | null: false |
 
 ### Association
 
@@ -32,7 +32,7 @@
 | condition_id       | integer    | null: false |
 | charge_bearer_id   | integer    | null: false |
 | shipping_area_id   | integer    | null: false |
-| delivary_days_id   | integer    | null: false |
+| delivary_day_id   | integer    | null: false |
 | price              | integer    | null: false |
 | user               | references | null: false, foreign_key: true|
 
@@ -63,11 +63,11 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| post_number_id     | string | null: false |
-| prefectures_id     | string | null: false |
+| post_number        | string | null: false |
+| prefecture_id      | string | null: false |
 | city               | string | null: false |
 | house_number       | string | null: false |
-| bilding_number     | string |             |
+| bilding_name       | string |             |
 | phone_number       | string | null: false |
 | buyer              | references | null: false, foreign_key: true|
 
