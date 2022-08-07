@@ -59,7 +59,7 @@
 
 
 
-## user_address テーブル
+## user_addresses テーブル
 
 | Column             | Type    | Options     |
 | ------------------ | ------- | ----------- |
