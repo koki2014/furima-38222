@@ -7,6 +7,11 @@
 | nickname           | string | null: false |
 | email              | string | null: false,unique: true|
 | password           | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_name     | string | null: false |
+| first_name_name    | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
@@ -21,36 +26,35 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| image              | string     | null: false |
 | name               | string     | null: false |
 | text               | text       | null: false |
-| category           | integer    | null: false |
-| condition          | integer    | null: false |
-| charge_bearer      | integer    | null: false |
-| shipping_area      | integer    | null: false |
-| delivary_days      | integer    | null: false |
+| category_id        | integer    | null: false |
+| condition_id       | integer    | null: false |
+| charge_bearer_id   | integer    | null: false |
+| shipping_area_id   | integer    | null: false |
+| delivary_days_id   | integer    | null: false |
 | price              | integer    | null: false |
-| users_id           | references | null: false, foreign_key: true|
+| user               | references | null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :users
-- has_one :buyers
+- belongs_to :user
+- has_one :buyer
 
 
 
 
 ## buyers テーブル
 
-| Column             | Type       | Options     |
-| ------------------ | ---------- | ----------- |
-| users_id           | references | null: false, foreign_key: true|
-| items_id           | references | null: false, foreign_key: true|
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| user               | references | null: false, foreign_key: true|
+| item               | references | null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :user_address
 
 
@@ -59,15 +63,15 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| post_number        | string | null: false |
-| prefectures        | string | null: false |
+| post_number_id     | string | null: false |
+| prefectures_id     | string | null: false |
 | city               | string | null: false |
 | house_number       | string | null: false |
-| bilding_number     | string | null: false |
+| bilding_number     | string |             |
 | phone_number       | string | null: false |
-| buyers_id          | references | null: false, foreign_key: true|
+| buyer              | references | null: false, foreign_key: true|
 
 
 ### Association
 
-- belongs_to :buyers
+- belongs_to :buyer
