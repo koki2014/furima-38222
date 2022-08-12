@@ -81,5 +81,31 @@ RSpec.describe Item, type: :model do
       
     end
 
+    it 'imageが空では登録できない' do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Image can't be blank"
+      
+    end
+
+    it '価格に半角数字以外が含まれている場合は出品できない' do
+      @item.price = '１０００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Price is not a number"
+      
+    end
+
+    it 'userが紐付いていなければ出品できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include ('User must exist')
+
+    end
+
+  
+    it '必須項目全てが存在すれば出品できる' do
+      expect(@item).to be_valid
+    end
+
   end
 end

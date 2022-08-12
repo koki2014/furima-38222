@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :charge_bearer
   belongs_to :shipping_area
   belongs_to :delivary_day
-
+  belongs_to :user
 
   validates :name, :image, :text, presence: true
 
