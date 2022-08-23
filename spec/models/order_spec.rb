@@ -43,6 +43,13 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order.errors.full_messages).to include "Post number is invalid"
       end
 
+      
+      it 'post_numberはハイフンがなければ購入できない' do
+        @order.post_number = '1234567'
+        @order.valid?
+        expect(@order.errors.full_messages).to include "Post number is invalid"
+      end
+
 
 
       it 'shipping_area_idが1のときは購入できない' do
