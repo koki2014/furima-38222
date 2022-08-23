@@ -77,17 +77,12 @@ RSpec.describe OrderAddress, type: :model do
       end
 
 
-      it 'phone_numberが電話番号が9桁以下では購入できない購入できない' do
-        @order.phone_number = '0901234'
-        @order.valid?
-        expect(@order.errors.full_messages).to include "Phone number is invalid"
-      end
-
       it 'phone_numberが9桁以下では購入できない購入できない' do
         @order.phone_number = '0901234'
         @order.valid?
         expect(@order.errors.full_messages).to include "Phone number is invalid"
       end
+
 
       it 'phone_numberが12桁以上では購入できない購入できない購入できない' do
         @order.phone_number = '0901234567891'
@@ -106,15 +101,15 @@ RSpec.describe OrderAddress, type: :model do
 
 
       it 'userが紐付いていなければ購入できない' do
-        @user.id = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include
+        @order.user_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include "User can't be blank"
       end
 
       it 'itemが紐付いていなければ購入できない' do
-        @item.id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include
+        @order.item_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include "Item can't be blank"
       end
 
 
